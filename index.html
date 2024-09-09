@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AshokCutPiece - Your Online Clothing Store</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+
+<body>
+  <nav>
+    <div class="menu">
+      <div class="logo">
+        <a href="#">AshokCutPiece</a>
+      </div>
+      <ul id="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#products">Products</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="addToCart.html" id="icons"><i class="fas fa-cart-plus"></i></a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
+  </nav>
+  <div id="home" class="hero">
+    <div class="hero-text">
+      <h2>Welcome to AshokCutPiece</h2>
+      <p>Your one-stop shop for trendy clothes!</p>
+      <a href="addToCart.html" class="btn">Shop Now</a>
+    </div>
+  </div>
+  <section id="products" class="products">
+    <h2>Our Products</h2>
+    <div class="product-list">
+      <!-- Update product items to redirect when clicked -->
+      <div class="product-item" onclick="location.href='addToCart.html'">
+        <img src="WhatsApp Image 2024-06-13 at 6.03.18 PM.jpeg" alt="Product 1">
+        <h3>Cemrice Punjabi Suit</h3>
+      </div>
+      <div class="product-item" onclick="location.href='addToCart.html'">
+        <img src="WhatsApp Image 2024-06-13 at 6.03.19 PM (1).jpeg" alt="Product 2">
+        <h3>Pakistani Punjabi Suit</h3>
+      </div>
+      <div class="product-item" onclick="location.href='addToCart.html'">
+        <img src="WhatsApp Image 2024-06-13 at 6.03.19 PM.jpeg" alt="Product 3">
+        <h3>Phulkari Suit</h3>
+      </div>
+      <div class="product-item" onclick="location.href='addToCart.html'">
+        <img src="WhatsApp Image 2024-08-09 at 7.57.23 AM.jpeg" alt="Product 4">
+        <h3>Punjabi Suit</h3>
+      </div>
+    </div>
+  </section>
+  <section id="about" class="about">
+    <h2>About Us</h2>
+    <p>At AshokCutPiece, we are committed to delivering an exceptional online shopping experience tailored to all your
+      fashion needs. Our mission is to bring you the latest trends, timeless classics, and unique styles from around the
+      globe, all from the comfort of your home</p>
+  </section>
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Feel free to get in touch with us for any queries.</p>
+    <form id="contactForm">
+      <label for="101">Name:</label>
+      <input type="text" placeholder="Name" id="101" pattern="[A-Za-z ]+" required>
+      <br><br>
+      <label for="102">E-mail:</label>
+      <input type="email" placeholder="Email" id="102" required>
+      <br><br>
+      <label for="104">Mobile No.:</label>
+      <input type="tel" placeholder="Mobile Number" id="104" pattern="[0-9]{10}" maxlength="10" required>
+      <br><br>
+      <label for="105">Feedback:</label>
+      <textarea id="105" placeholder="Your feedback" rows="4" cols="50" required></textarea>
+      <br><br>
+      <button type="button" onclick="saveInfo()">Save</button>
+      <button type="reset">Cancel</button>
+    </form>
+    <br>
+    <p class="warning" id="warningMessage" style="display: none; color: rgb(64, 49, 49);">Please fill out all fields correctly!</p>
+    <p id="successMessage" style="color: green;"></p>
+    <br>
+    <p>&copy; 2024 AshokCutPiece. All rights reserved.</p>
+  </section>
+
+  <footer>
+  </footer>
+
+  <script>
+    function saveInfo() {
+      const name = document.getElementById("101").value.trim();
+      const email = document.getElementById("102").value.trim();
+      const mobile = document.getElementById("104").value.trim();
+      const feedback = document.getElementById("105").value.trim();
+
+      const namePattern = /^[A-Za-z ]+$/;
+      const mobilePattern = /^[0-9]{10}$/;
+
+      if (namePattern.test(name) && email && mobilePattern.test(mobile) && feedback) {
+        document.getElementById("successMessage").innerText = "Information saved successfully!";
+        document.getElementById("contactForm").reset(); // Reset the form
+        document.getElementById("warningMessage").style.display = "none";
+      } else {
+        document.getElementById("warningMessage").style.display = "block";
+        document.getElementById("successMessage").innerText = "";
+      }
+    }
+  </script>
+</body>
+
+</html>
